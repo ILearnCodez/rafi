@@ -1912,7 +1912,6 @@ h1, h2, h3, h4, h5 {
 /* Stagger chat tokens */
 .chat-stack.visible .chat-token:nth-child(1) { transition-delay: 0.04s; }
 .chat-stack.visible .chat-token:nth-child(2) { transition-delay: 0.08s; }
-.chat-stack.visible .chat-token:nth-child(3) { transition-delay: 0.12s; }
 
 .chat-token {
   width: 50px; height: 50px;
