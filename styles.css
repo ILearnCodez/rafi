@@ -2003,7 +2003,7 @@ h1, h2, h3, h4, h5 {
 .chat-pill.hidden {
   opacity: 0;
   pointer-events: none;
-  transform: scale(0);
+  transform: scale(0.8);
   transition: opacity var(--t-fast), transform var(--t-fast), pointer-events 0s;
 }
 
