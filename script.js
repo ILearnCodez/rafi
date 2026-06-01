@@ -1,4 +1,4 @@
-./**
+/**
  * ================================================================
  * DHAKA SERENITY SPA — MASTER SCRIPT
  * ================================================================
@@ -48,23 +48,45 @@ document.addEventListener('DOMContentLoaded', () => {
    1. PAGE LOADER
    Hides the full-screen loader after page assets are ready.
    Uses a minimum display time so the animation feels intentional.
+   Handles three cases:
+     a) Normal load  — fires after window 'load'
+     b) Already loaded — document.readyState === 'complete' on DOMContentLoaded
+     c) Hard fallback — hides after 4s no matter what (prevents infinite stuck loader)
    ================================================================ */
 function initLoader() {
   const loader = document.getElementById('page-loader');
   if (!loader) return;
 
-  const minTime   = 1700;
+  const MIN_TIME  = 1700;
+  const MAX_TIME  = 4000; // absolute fallback — never stuck longer than this
   const startTime = Date.now();
 
-  window.addEventListener('load', () => {
+  const hideLoader = () => {
     const elapsed   = Date.now() - startTime;
-    const remaining = Math.max(0, minTime - elapsed);
+    const remaining = Math.max(0, MIN_TIME - elapsed);
 
     setTimeout(() => {
       loader.classList.add('hidden');
+      // Remove from DOM after CSS transition completes
       loader.addEventListener('transitionend', () => loader.remove(), { once: true });
+      // Safety: remove even if transitionend never fires (e.g. CSS disabled)
+      setTimeout(() => { if (loader.parentNode) loader.remove(); }, 1200);
     }, remaining);
-  });
+  };
+
+  // Case (b): page already fully loaded before this script ran
+  if (document.readyState === 'complete') {
+    hideLoader();
+    return;
+  }
+
+  // Case (a): normal path — wait for all resources
+  window.addEventListener('load', hideLoader, { once: true });
+
+  // Case (c): hard fallback in case 'load' never fires (e.g. blocked resource)
+  setTimeout(() => {
+    if (loader.parentNode) hideLoader();
+  }, MAX_TIME);
 }
 
 
