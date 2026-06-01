@@ -1925,7 +1925,6 @@ h1, h2, h3, h4, h5 {
 }
 .chat-token:hover { transform: scale(1.18); box-shadow: var(--shadow-xl); }
 
-.chat-telegram  { background: linear-gradient(145deg, #2aabee, #1e8ec8); }
 .chat-call      { background: linear-gradient(145deg, var(--color-gold), var(--color-gold-dim)); }
 .chat-whatsapp  { background: linear-gradient(145deg, #25d366, #1da851); }
 
