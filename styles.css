@@ -1221,7 +1221,11 @@ h1, h2, h3, h4, h5 {
   color: var(--color-gold);
   transform: rotate(90deg) scale(1.15);
 }
-
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
 .accordion-content.hidden,
 .accordion-item.hidden{
   display: none;
