@@ -1222,8 +1222,10 @@ h1, h2, h3, h4, h5 {
   transform: rotate(90deg) scale(1.15);
 }
 
-.accordion-item.hidden { display: none; }
-
+.accordion-content.hidden,
+.accordion-item.hidden{
+  display: none;
+}
 .announcement-bar {
   background: linear-gradient(135deg, rgba(180,138,78,0.06), rgba(180,138,78,0.1));
   border-radius: var(--radius-lg);
