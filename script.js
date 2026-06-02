@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallaxOrbs();
   initMagneticButtons();
   initCursorGlow();
+  initAccordion();
 });
 
 
@@ -683,4 +684,43 @@ function initLocationSwitcher() {
 /* INIT CALL */
 document.addEventListener('DOMContentLoaded', () => {
   initLocationSwitcher();
+  initAccordion();
 });
+
+/* ================================================================
+   18. ACCORDION EXPAND SYSTEM
+   ================================================================ */
+function initAccordion() {
+  const items = document.querySelectorAll('.accordion-item');
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+
+      const isActive = item.classList.contains('active');
+
+      // Close all
+      items.forEach(i => {
+        i.classList.remove('active');
+
+        const content = i.nextElementSibling;
+        if (content) content.style.maxHeight = null;
+
+        const icon = i.querySelector('i');
+        if (icon) icon.classList.replace('fa-minus', 'fa-plus');
+      });
+
+      // Open current
+      if (!isActive) {
+        item.classList.add('active');
+
+        const content = item.nextElementSibling;
+        if (content) content.style.maxHeight = content.scrollHeight + "px";
+
+        const icon = item.querySelector('i');
+        if (icon) icon.classList.replace('fa-plus', 'fa-minus');
+      }
+
+    });
+  });
+}
+
