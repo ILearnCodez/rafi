@@ -521,21 +521,25 @@
           <h2 class="loc-title">Find Your Nearest Branch</h2>
           <p class="loc-body">Find us in Gulshan and Mirpur, where comfort and serenity await. Select your preferred location and visit us today.</p>
 
-          <div class="loc-address-box">
-            <i class="fa-solid fa-map-pin loc-pin"></i>
-            <div>
-              <p class="loc-addr-line1">Mirpur 1, Mukto Bangla Shopping Complex</p>
-              <p class="loc-addr-line2">Dhaka 1216, Bangladesh</p>
-            </div>
-          </div>
+        <div class="loc-address-box loc-location active"
+     data-map="https://www.google.com/maps?q=Gulshan-2,+UCB+Bank,+Dhaka&output=embed"
+     data-direction="https://www.google.com/maps/dir/?api=1&destination=Gulshan-2,+UCB+Bank,+Dhaka">
+  <i class="fa-solid fa-map-pin loc-pin"></i>
+  <div>
+    <p class="loc-addr-line1">Gulshan-2, UCB Bank</p>
+    <p class="loc-addr-line2">Dhaka 1212, Bangladesh</p>
+  </div>
+</div>
 
-          <div class="loc-address-box">
-            <i class="fa-solid fa-map-pin loc-pin"></i>
-            <div>
-              <p class="loc-addr-line1">Gulshan-2, UCB Bank</p>
-              <p class="loc-addr-line2">Dhaka 1212, Bangladesh</p>
-            </div>
-          </div>
+<div class="loc-address-box loc-location"
+     data-map="https://www.google.com/maps?q=Mukto+Bangla+Shopping+Complex,+Mirpur-1,+Dhaka&output=embed"
+     data-direction="https://www.google.com/maps/dir/?api=1&destination=Mukto+Bangla+Shopping+Complex,+Mirpur-1,+Dhaka">
+  <i class="fa-solid fa-map-pin loc-pin"></i>
+  <div>
+    <p class="loc-addr-line1">Mirpur 1, Mukto Bangla Shopping Complex</p>
+    <p class="loc-addr-line2">Dhaka 1216, Bangladesh</p>
+  </div>
+</div>
 
           <div class="loc-hours-box">
             <i class="fa-regular fa-clock loc-clock"></i>
@@ -546,8 +550,11 @@
           </div>
 
           <div class="loc-actions">
-            <a href="https://www.google.com/maps/dir//Dhaka+Serenity+Spa,+80+Road+No.+11,+Dhaka+1213/@23.7908285,90.4091438,18z/data=!4m16!1m7!3m6!1s0x3755c6e06955e091:0x7b11ff58e26d205c!2sDhaka+Serenity+Spa!8m2!3d23.7902726!4d90.4094053!16s%2Fg%2F11b8v9kmqh!4m7!1m0!1m5!1m1!1s0x3755c6e06955e091:0x7b11ff58e26d205c!2m2!1d90.4094104!2d23.7903087?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-dark ripple-btn loc-btn">
-              <span>Get Directions</span>
+            <a id="directionBtn"
+              href="https://www.google.com/maps/dir//Dhaka+Serenity+Spa,+80+Road+No.+11,+Dhaka+1213/@23.7908285,90.4091438,18z/data=!4m16!1m7!3m6!1s0x3755c6e06955e091:0x7b11ff58e26d205c!2sDhaka+Serenity+Spa!8m2!3d23.7902726!4d90.4094053!16s%2Fg%2F11b8v9kmqh!4m7!1m0!1m5!1m1!1s0x3755c6e06955e091:0x7b11ff58e26d205c!2m2!1d90.4094104!2d23.7903087?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-dark ripple-btn loc-btn"
+              target="_blank"
+              class="btn btn-dark ripple-btn loc-btn">
+             <span>Get Directions</span>
               <i class="fa-solid fa-diamond-turn-right"></i>
             </a>
             <a href="https://maps.google.com/" target="_blank" class="loc-glink">
@@ -559,16 +566,16 @@
 
         <!-- Right Map Card -->
        <div class="loc-card loc-map-card reveal-right">
-  <iframe
-    title="Dhaka Serenity Spa location map"
+ <iframe
+  id="mapFrame"
+  title="Dhaka Serenity Spa location map"
     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1825.3906083691681!2d90.40915452883607!3d23.79080395713469!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c6e06955e091%3A0x7b11ff58e26d205c!2sDhaka%20Serenity%20Spa!5e0!3m2!1sen!2sbd!4v1780358689742!5m2!1sen!2sbd"
-    width="100%"
-    height="100%"
-    style="border:0; border-radius: 20px;"
-    allowfullscreen=""
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
+   width="100%"
+  height="100%"
+  style="border:0; border-radius: 20px;"
+  allowfullscreen=""
+  loading="lazy">
+</iframe>
 </div>      </div>
     </div>
   </section>
