@@ -210,37 +210,41 @@ function initTabFilter() {
   if (!tabBtns.length || !accItems.length) return;
 
   const applyFilter = (category) => {
-    let visibleCount = 0;
+  let visibleCount = 0;
+  accItems.forEach((item) => {
+    const content = item.nextElementSibling; // the accordion-content paired to this item
+    const cats = item.getAttribute('data-category') || '';
 
-    accItems.forEach((item) => {
-      const cats = item.getAttribute('data-category') || '';
-
-      if (category === 'all' || cats.includes(category)) {
-        item.classList.remove('hidden');
-        item.style.opacity   = '0';
-        item.style.transform = 'translateX(-16px)';
-
-        const delay = visibleCount * 50;
-        setTimeout(() => {
-          item.style.transition = 'opacity 0.38s cubic-bezier(0.16,1,0.3,1), transform 0.38s cubic-bezier(0.16,1,0.3,1)';
-          item.style.opacity    = '1';
-          item.style.transform  = 'translateX(0)';
-        }, delay);
-
-        visibleCount++;
-      } else {
-        item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-        item.style.opacity    = '0';
-        item.style.transform  = 'translateX(8px)';
-        setTimeout(() => {
-          item.classList.add('hidden');
-          item.style.opacity    = '';
-          item.style.transform  = '';
-          item.style.transition = '';
-        }, 200);
+    if (category === 'all' || cats.includes(category)) {
+      item.classList.remove('hidden');
+      if (content && content.classList.contains('accordion-content')) {
+        content.classList.remove('hidden'); // ← show content too
       }
-    });
-  };
+      item.style.opacity   = '0';
+      item.style.transform = 'translateX(-16px)';
+      const delay = visibleCount * 50;
+      setTimeout(() => {
+        item.style.transition = 'opacity 0.38s cubic-bezier(0.16,1,0.3,1), transform 0.38s cubic-bezier(0.16,1,0.3,1)';
+        item.style.opacity    = '1';
+        item.style.transform  = 'translateX(0)';
+      }, delay);
+      visibleCount++;
+    } else {
+      item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+      item.style.opacity    = '0';
+      item.style.transform  = 'translateX(8px)';
+      setTimeout(() => {
+        item.classList.add('hidden');
+        if (content && content.classList.contains('accordion-content')) {
+          content.classList.add('hidden'); // ← hide content too
+        }
+        item.style.opacity    = '';
+        item.style.transform  = '';
+        item.style.transition = '';
+      }, 200);
+    }
+  });
+};
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
