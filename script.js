@@ -648,3 +648,39 @@ function initCursorGlow() {
     }
   }
 }
+
+/* ================================================================
+   17. LOCATION SWITCHER (MAP + DIRECTIONS)
+   ================================================================ */
+function initLocationSwitcher() {
+  const locations = document.querySelectorAll('.loc-location');
+  const mapFrame = document.getElementById('mapFrame');
+  const directionBtn = document.getElementById('directionBtn');
+
+  if (!locations.length || !mapFrame || !directionBtn) return;
+
+  locations.forEach(loc => {
+    loc.addEventListener('click', () => {
+
+      // Remove active from all
+      locations.forEach(l => l.classList.remove('active'));
+
+      // Add active to clicked
+      loc.classList.add('active');
+
+      // Update map
+      const mapURL = loc.getAttribute('data-map');
+      mapFrame.src = mapURL;
+
+      // Update directions
+      const dirURL = loc.getAttribute('data-direction');
+      directionBtn.href = dirURL;
+
+    });
+  });
+}
+
+/* INIT CALL */
+document.addEventListener('DOMContentLoaded', () => {
+  initLocationSwitcher();
+});
