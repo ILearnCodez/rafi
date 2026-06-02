@@ -804,6 +804,20 @@ h1, h2, h3, h4, h5 {
   box-shadow: var(--shadow-xl), 0 0 60px rgba(180,138,78,0.12);
   transition: transform 0.6s var(--ease-expo), box-shadow 0.6s var(--ease-smooth);
 }
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-img-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.25), transparent);
+}
+
 .hero-img-frame:hover {
   transform: perspective(900px) rotateY(-5deg) rotateX(2deg) translateY(-8px);
   box-shadow: var(--shadow-xl), 0 0 90px rgba(180,138,78,0.22);
