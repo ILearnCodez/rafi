@@ -211,14 +211,16 @@ function initTabFilter() {
 
   const applyFilter = (category) => {
   let visibleCount = 0;
-  accItems.forEach((item) => {
-    const content = item.nextElementSibling; // the accordion-content paired to this item
-    const cats = item.getAttribute('data-category') || '';
 
-    if (category === 'all' || cats.includes(category)) {
+  accItems.forEach((item) => {
+    const content = item.nextElementSibling;
+    const cats = item.getAttribute('data-category') || '';
+    const isVisible = category === 'all' || cats.includes(category);
+
+    if (isVisible) {
       item.classList.remove('hidden');
       if (content && content.classList.contains('accordion-content')) {
-        content.classList.remove('hidden'); // ← show content too
+        content.classList.remove('hidden');
       }
       item.style.opacity   = '0';
       item.style.transform = 'translateX(-16px)';
@@ -229,19 +231,32 @@ function initTabFilter() {
         item.style.transform  = 'translateX(0)';
       }, delay);
       visibleCount++;
+
     } else {
+      // Smoothly collapse open content before hiding
+      if (content && content.classList.contains('accordion-content') && content.style.maxHeight) {
+        content.style.transition = 'max-height 0.25s ease';
+        content.style.maxHeight  = '0px';
+      }
+
       item.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
       item.style.opacity    = '0';
       item.style.transform  = 'translateX(8px)';
+
       setTimeout(() => {
         item.classList.add('hidden');
         if (content && content.classList.contains('accordion-content')) {
-          content.classList.add('hidden'); // ← hide content too
+          content.classList.add('hidden');
+          content.style.maxHeight  = null;
+          content.style.transition = '';
         }
+        item.classList.remove('active');
+        const icon = item.querySelector('i');
+        if (icon) icon.classList.replace('fa-minus', 'fa-plus');
         item.style.opacity    = '';
         item.style.transform  = '';
         item.style.transition = '';
-      }, 200);
+      }, 250);
     }
   });
 };
