@@ -244,6 +244,20 @@ function initTabFilter() {
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+
+       // CLOSE ALL
+      accItems.forEach(i => {
+        i.classList.remove('active');
+
+        const content = i.nextElementSibling;
+
+        if (content && content.classList.contains('accordion-content')) {
+          content.style.maxHeight = null;
+        }
+
+        const icon = i.querySelector('i');
+        if (icon) icon.classList.replace('fa-minus', 'fa-plus');
+      });
       tabBtns.forEach(b => {
         b.classList.remove('active');
         b.setAttribute('aria-selected', 'false');
