@@ -2156,3 +2156,24 @@ h1, h2, h3, h4, h5 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ================================================================
+   LOCATION INTERACTION 
+   ================================================================ */
+
+.loc-location {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loc-location:hover {
+  background: var(--color-cream-3);
+  border-color: rgba(180,138,78,0.3);
+  transform: translateX(4px);
+}
+
+.loc-location.active {
+  background: #e8ddd0;
+  border: 1.5px solid #b48a4e;
+  box-shadow: 0 4px 18px rgba(180,138,78,0.25);
+}
