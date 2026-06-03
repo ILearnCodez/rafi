@@ -2182,7 +2182,7 @@ border-radius: inherit;
 }
 
 /* ================================================================
-   LOCATION INTERACTION 
+   17. LOCATION INTERACTION 
    ================================================================ */
 
 .loc-location {
@@ -2267,3 +2267,19 @@ border-radius: inherit;
   font-size: 0.82rem;
   color: var(--color-text-muted);
 }
+
+/* ================================================================
+   18.  MOBILE SCROLL INDICATOR FIX
+   Adjusts spacing and positioning for small screens 
+   ================================================================ */
+@media (max-width: 768px) {
+
+  .hero-container {
+    padding-bottom: 100px;
+  }
+
+  .scroll-indicator {
+    bottom: 16px;
+  }
+}
+
