@@ -776,6 +776,7 @@ h1, h2, h3, h4, h5 {
 }
 .hero-visual-inner {
   position: relative;
+  overflow: visible;
   width: 100%;
   max-width: 460px;
 }
@@ -983,7 +984,7 @@ border-radius: inherit;
   position: absolute;
   bottom: -20px;
   right: -20px;
-  z-index: 10;
+  z-index: 20;
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(16px);
   border-radius: var(--radius-lg);
