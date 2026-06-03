@@ -1983,25 +1983,6 @@ border-radius: inherit;
 }
 .chat-avatar-icon { font-size: 1.1rem; color: var(--color-white); }
 
-.chat-badge {
-  position: absolute;
-  top: -4px; right: -4px;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: #d03030;
-  color: var(--color-white);
-  font-family: var(--font-body);
-  font-size: 0.64rem;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--color-white);
-  animation: badgePulse 2.2s ease-in-out infinite;
-}
-@keyframes badgePulse {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.25); }
-}
-
 .chat-close {
   display: none;
   width: 46px; height: 46px;
